@@ -2,7 +2,7 @@
 ## Running latest Release of Moodle Version on latest PHP,MariaDB Supported to prepare for next year
 1. lets start build our First docker compose file, docker compose file is set of dockers deffined as services and use 
 the env deffind in docker-compose yaml file
-1. first we need to create docker-compose.yaml file, for this example we already make [one](docker-compose.yaml 
+1. first we need to create docker-compose.yaml file, for this example we already make [one](/docker-compose.yaml 
 "docker-compose yaml file")
     ```bash
     $ docker-compose -f docker-compose.yaml up
