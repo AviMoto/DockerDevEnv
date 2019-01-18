@@ -1,10 +1,12 @@
 version: '3'
 services:
   webserver:
-    image: "php:7.2.14-apache"
+    image: "sysbind/php:7.2.14-apache-dev-demo"
     volumes:
       - ./moodle_36_stable:/var/www/html
-      - ./moodledata/2019:/var/www/moodledata
+      - ./moodledata/2020:/var/www/moodledata
+    environment:
+      UID: 1000
     ports:
       - "80:80"
       - "443:443"
