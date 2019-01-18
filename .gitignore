@@ -1,1 +1,4 @@
 /.idea/
+/mysql/
+/postgresql/
+/moodle_36_stable/config.php

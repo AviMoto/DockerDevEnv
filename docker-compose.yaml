@@ -1,0 +1,27 @@
+version: '3'
+services:
+  webserver:
+    image: "php:7.2.14-apache"
+    volumes:
+      - ./moodle_36_stable:/var/www/html
+      - ./moodledata/2019:/var/www/moodledata
+    ports:
+      - "80:80"
+      - "443:443"
+    networks:
+      dev:
+        aliases:
+          - moodledev.test
+  db:
+    image: "mariadb:10.4.1"
+    environment:
+      MYSQL_ROOT_PASSWORD: 'rootpassword'
+      MYSQL_DB: "moodle2020"
+      MYSQL_USER: "moodle"
+      MYSQL_PASSWORD: "moodlepassword"
+    volumes:
+      - ./mysql/10.4.1:/var/lib/mysql
+    networks:
+      - dev
+networks:
+  dev:
