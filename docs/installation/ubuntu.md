@@ -27,4 +27,4 @@ $ systemctl enable docker
 ```
 
 ## Next
-[Install Docker compose on linux](/linux_docker_compose.md "Install Docker compose on linux")
+[Install Docker compose on linux](/docs/installation/linux_docker_compose.md "Install Docker compose on linux")
