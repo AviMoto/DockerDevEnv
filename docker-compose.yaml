@@ -1,19 +1,25 @@
 version: '3'
 services:
-  webserver:
-    image: "sysbind/php:7.2.14-apache-dev-demo"
+  loadbalancer:
+    image: "nginx:1.14-alpine"
     volumes:
-      - ./moodle_36_stable:/var/www/html
-      - ./moodledata/2020:/var/www/moodledata
-    environment:
-      UID: 1000
-    ports:
-      - "80:80"
-      - "443:443"
+      - ./dockerfiles/nginx/loadblancer.conf:/etc/nginx/conf.d/loadblancer.conf
     networks:
       dev:
         aliases:
           - moodledev.test
+    ports:
+      - "80:80"
+      - "443:443"
+  webserver:
+    image: "sysbind/php:7.2.14-apache-dev-demo"
+    volumes:
+      - ./moodle_36_stable:/var/www/html/2020
+      - ./moodledata/2020:/var/www/moodledata
+    environment:
+      UID: 1000
+    networks:
+      - dev
   db:
     image: "mariadb:10.4.1"
     environment:
@@ -23,6 +29,32 @@ services:
       MYSQL_PASSWORD: "moodlepassword"
     volumes:
       - ./mysql/10.4.1:/var/lib/mysql
+    networks:
+      - dev
+  nginx2019:
+    image: "nginx:1.14-alpine"
+    volumes:
+      - ./moodle_35_stable:/var/www/html/2019
+      - ./moodledata/2019:/var/www/moodledata
+      - ./dockerfiles/nginx/moodle-virtualhost.conf:/etc/nginx/conf.d/moodle-virtualhost.conf
+    networks:
+      - dev
+  phpfpm:
+    image: "sysbind/php:7.1.26-fpm-dev-demo"
+    volumes:
+      - ./moodle_35_stable:/var/www/html/2019
+      - ./moodledata/2019:/var/www/moodledata
+    networks:
+      - dev
+  db2019:
+    image: postgres:10.3
+    volumes:
+      - ./postgresql/10.3:/var/lib/pgsql/
+    environment:
+      POSTGRES_PASSWORD: postgrespassword
+      POSTGRES_USER: moodle
+      PGDATA: /var/lib/pgsql/data
+      POSTGRES_DB: moodle2019
     networks:
       - dev
 networks:
