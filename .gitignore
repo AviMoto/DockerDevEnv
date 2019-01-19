@@ -2,3 +2,5 @@
 /mysql/
 /postgresql/
 /moodle_36_stable/config.php
+/moodle_35_stable/config.php
+/moodledata/*
