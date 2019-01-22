@@ -7,9 +7,13 @@ In Step 3 we understand that the official php image is not enough for running mo
     ```
 1. after the build was finish we can publish our dev image in <https://dockerhub.com> by push the image
     ```bash
-    $ docker push sysbind/php:7.2.14-apache-dev-dem
+    $ docker push sysbind/php:7.2.14-apache-dev-demo
     ```
 1. now we only need to update our webserver image in the docker compose file and run it again
 
 # Next
-I need to test two moodle env from different years an different env, So lets jump to step 5
+I need to test two moodle env from different years with different services, So lets jump to step 5, checkout branch 
+Step5-multi_year_env and go to [Multi year dev](/docs/multi_env.md)
+```bash
+$ git checkout Step5-multi_year_env
+```
