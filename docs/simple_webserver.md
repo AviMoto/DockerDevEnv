@@ -39,4 +39,4 @@ to get new version in suprise (It's happen when we use 'latest' tag or without t
 So we see how easy it switch between versions or type of services with out the need for special resources, but we still 
 not start to develop and what about the all system (DB, PHP, cache etc..)
 
-we need to go to the next step
+Change to branch Step3-Build_Containerized_env and go to (Run Dev Env with docker compose)[docs/first_dev_env.md]
