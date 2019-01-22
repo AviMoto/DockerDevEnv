@@ -4,7 +4,7 @@ services:
     image: "php:7.2.14-apache"
     volumes:
       - ./moodle_36_stable:/var/www/html
-      - ./moodledata/2019:/var/www/moodledata
+      - ./moodledata/2020:/var/www/moodledata
     ports:
       - "80:80"
       - "443:443"

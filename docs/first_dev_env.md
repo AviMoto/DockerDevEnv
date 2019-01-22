@@ -1,7 +1,11 @@
 # Build Development Environment with Docker Compose
 ## Running latest Release of Moodle Version on latest PHP,MariaDB Supported to prepare for next year
-1. lets start build our First docker compose file, docker compose file is set of dockers deffined as services and use 
-the env deffind in docker-compose yaml file
+1. lets start build our First docker compose file, docker compose file is set of dockers defined as services and use 
+the env defined in docker-compose yaml file
+1. We need to create and verify that our moodledata directory have the right permission
+    ```bash
+    $ chmod -R 02777 ./moodledata
+    ```
 1. first we need to create docker-compose.yaml file, for this example we already make [one](/docker-compose.yaml 
 "docker-compose yaml file")
     ```bash
@@ -23,4 +27,8 @@ the domain moodledev.test
     We have problem to go on with the installation because we dosen't have to required php extension
     
 ## Next
-We need to create our own image of webserver that include all required php extension, let's go to step 4   
+We need to create our own image of webserver that include all required php extension, change to brunch 
+Step4-build_image and go to [Build your own image](/docs/build_image.md)
+```bash
+$ git checkout Step4-build_image
+```
